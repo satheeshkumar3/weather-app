@@ -2,10 +2,12 @@ package main
 
 import (
 	"context"
+	"fmt" // Use fmt for formatted printing
 	"log"
 	"time"
 
-	"github.com/satheeshkumar3/weather-app/generated"
+	"github.com/satheeshkumar3/weather-app/generated" // Import generated code
+
 	"google.golang.org/grpc"
 )
 
@@ -16,16 +18,17 @@ func main() {
 	}
 	defer conn.Close()
 
-	client := generated.NewWeatherServiceClient(conn)
+	client := generated.NewWeatherServiceClient(conn) // Use generated client
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
-	req := &generated.WeatherRequest{City: "San Francisco"}
+	req := &generated.WeatherRequest{City: "San Francisco"} // Use generated message type
 	res, err := client.GetWeather(ctx, req)
 	if err != nil {
 		log.Fatalf("failed to get weather: %v", err)
 	}
 
-	log.Printf("Weather in %s: %s, %.2f°C", res.GetCity(), res.GetDescription(), res.GetTemperature())
+	// Use fmt.Printf for formatted output
+	fmt.Printf("Weather in %s: %s, %.2f°C\n", res.GetCity(), res.GetDescription(), res.GetTemperature())
 }

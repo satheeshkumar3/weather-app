@@ -6,6 +6,7 @@ import (
 	"net"
 
 	"github.com/satheeshkumar3/weather-app/generated"
+
 	"google.golang.org/grpc"
 )
 

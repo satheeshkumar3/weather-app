@@ -1,9 +1,7 @@
 syntax = "proto3";
 
-package weather;
-
 // Option to specify the Go package path for generated files
-option go_package = "./;pb";
+option go_package = "github.com/satheeshkumar3/weather-app/generated";
 
 // Service definition
 service WeatherService {
