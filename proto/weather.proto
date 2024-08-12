@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package weather;
+
+// Option to specify the Go package path for generated files
+option go_package = "github.com/satheeshkumar3/weather-app/generated";
+
+// Service definition
+service WeatherService {
+  // RPC method to get weather information
+  rpc GetWeather (WeatherRequest) returns (WeatherResponse);
+}
+
+// Request message containing the city for which weather is requested
+message WeatherRequest {
+  string city = 1;  // The name of the city
+}
+
+// Response message containing weather information
+message WeatherResponse {
+  string city = 1;          // The name of the city
+  string description = 2;   // Description of the weather (e.g., "Sunny")
+  float temperature = 3;    // Temperature in Celsius
+}
