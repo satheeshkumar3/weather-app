@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.27.3
-// source: proto/weather.proto
+// source: weather.proto
 
-package generated
+package pb
 
 import (
 	context "context"
@@ -28,7 +28,6 @@ const (
 //
 // Service definition
 type WeatherServiceClient interface {
-	// RPC method to get weather information
 	GetWeather(ctx context.Context, in *WeatherRequest, opts ...grpc.CallOption) (*WeatherResponse, error)
 }
 
@@ -56,7 +55,6 @@ func (c *weatherServiceClient) GetWeather(ctx context.Context, in *WeatherReques
 //
 // Service definition
 type WeatherServiceServer interface {
-	// RPC method to get weather information
 	GetWeather(context.Context, *WeatherRequest) (*WeatherResponse, error)
 	mustEmbedUnimplementedWeatherServiceServer()
 }
@@ -123,5 +121,5 @@ var WeatherService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/weather.proto",
+	Metadata: "weather.proto",
 }

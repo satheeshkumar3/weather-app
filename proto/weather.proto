@@ -3,11 +3,10 @@ syntax = "proto3";
 package weather;
 
 // Option to specify the Go package path for generated files
-option go_package = "github.com/satheeshkumar3/weather-app/generated";
+option go_package = "./;pb";
 
 // Service definition
 service WeatherService {
-  // RPC method to get weather information
   rpc GetWeather (WeatherRequest) returns (WeatherResponse);
 }
 
